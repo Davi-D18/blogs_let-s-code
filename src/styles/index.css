@@ -95,6 +95,7 @@ header p {
   object-fit: cover;
   border-radius: 10px;
   transition: transform 0.3s ease;
+  pointer-events: none;
 }
 
 .card:hover img {
@@ -129,6 +130,7 @@ header p {
   font-size: 14px;
   color: var(--text-color);
   margin-bottom: 15px;
+  font-weight: 500;
 
   & span {
     font-weight: bold;
@@ -178,5 +180,9 @@ header p {
 
   .card {
     width: 100%;
+  }
+
+  .btn:hover {
+    background-color: var(--button-color);
   }
 }
