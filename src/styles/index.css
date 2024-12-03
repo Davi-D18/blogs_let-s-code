@@ -6,7 +6,6 @@
   --text-color: #333333; /* Texto escuro */
   --button-color: #1e6a6f; /* Azul esverdeado suave */
   --card-background-color: #ffffff; /* Fundo branco para cards */
-  --card-hover-background: #f9f9f9; /* Fundo suave ao passar o mouse */
   --link-hover-color: #1e4e4e; /* Cor para links ao passar o mouse */
 }
 
@@ -70,23 +69,27 @@ header p {
   border-radius: 12px;
   width: 300px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, opacity 0.5s, transform 0.5s;
+  transition: transform 0.5s ease-in-out, box-shadow 0.3s ease, opacity 0.5s;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateX(-110px);
 }
 
 .card.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
+}
+
+.card.hide {
+  opacity: 0;
+  transform: translateX(-110px);
 }
 
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  background-color: var(--card-hover-background);
 }
 
 /* Imagem do card */

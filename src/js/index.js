@@ -1,21 +1,19 @@
-// Seleciona todos os cards
-const cards = document.querySelectorAll(".card");
-
-// Função para adicionar a classe de animação quando os cards estiverem visíveis
-const animateCards = () => {
-  cards.forEach((card) => {
-    const cardPosition = card.getBoundingClientRect().top;
-    const screenPosition = window.innerHeight / 1.2;
-
-    // Se o card estiver visível na tela, adiciona a animação
-    if (cardPosition < screenPosition) {
-      card.classList.add("show");
+function handleIntersection(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.remove("hide");
+      entry.target.classList.add("show");
+    } else {
+      entry.target.classList.remove("show");
+      entry.target.classList.add("hide");
     }
   });
-};
+}
 
-// Chama a função ao rolar a página
-window.addEventListener("scroll", animateCards);
+const observer = new IntersectionObserver(handleIntersection, {
+  threshold: 0.18,
+});
 
-// Executa imediatamente para aplicar a animação ao carregar a página
-animateCards();
+document.querySelectorAll(".card").forEach((card) => {
+  observer.observe(card);
+});
